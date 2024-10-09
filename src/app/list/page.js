@@ -1,30 +1,34 @@
 "use client"
 
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback  } from 'react';
 import Swiper from '../../components/swiper';
 
-export default function list() {
+export default function List() {
     const [message, setMessage] = useState('');
+    const [code, setCode] = useState([]);
     
     useEffect(()=> {
         getList();
-    },[]);
+    }, []);
 
-const getList = async () => {
+const getList = useCallback (async () => {
+    
     try {
         const res = await axios.get('http://localhost:3000/api/list');
-        console.log(res);
         setMessage(res.data.message);
+        setCode(res.data.code)
+
     } catch (error) {
         console.error('Error fetching list:', error);
     }
 
-}
+})
 
   return (
-    <>{message}
-    <Swiper show={4}/>
+    <>
+        {message && message}
+        {code.length > 0 && <Swiper show={4} code={code} speed={1500}/>}
     </>
   );
 }

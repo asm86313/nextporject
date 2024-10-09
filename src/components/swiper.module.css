@@ -20,6 +20,7 @@
     flex: 0 0 auto; /* 너비를 자동으로 조정 */
     box-sizing: border-box; /* 여백 포함하여 너비 계산 */
     text-align: center;
+    padding: 1rem;
 }
 
 .imageItem img {
