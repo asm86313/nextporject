@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect, useRef, useState } from 'react';
 import css from './swiper.module.css';
 
@@ -9,12 +11,10 @@ export default function Swiper(props) {
     const [speed, setSpeed] = useState(3000); // 보여줄 슬라이드 개수
 
     useEffect(() => {
-        if (props.code) {
-            setSlides(props.code); // props.code가 있을 경우 슬라이드 설정
-        }
+        setSlides(props.code); // props.code가 있을 경우 슬라이드 설정
         setSlidesToShow(props.show); // 보여줄 슬라이드 개수 설정
         setSpeed(props.speed)
-    }, [props]);
+    }, []);
 
     useEffect(() => {
         const slideWidth = 100 / slidesToShow; // 각 슬라이드의 너비 계산
@@ -56,7 +56,6 @@ export default function Swiper(props) {
                             <img className={css.img} src={slide.src} alt={slide.alt} />
                         </div>
                     ))}
-                    
                 </div>
             </div>
         </div>
