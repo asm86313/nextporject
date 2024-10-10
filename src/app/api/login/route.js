@@ -2,7 +2,11 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { cookies } from 'next/headers';  // 쿠키를 사용해 세션 관리
 
+
+
 const SECRET_KEY = process.env.SECRET_KEY;  // 실제로는 환경 변수로 설정해야 합니다.
+
+
 
 // 비밀번호 해싱 함수
 async function hashPassword(password) {

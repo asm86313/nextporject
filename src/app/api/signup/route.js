@@ -11,18 +11,19 @@ export async function POST(request) {
 
   // MySQL 데이터베이스 연결
   const connection = await mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'your_db_password',
-    database: 'your_database',
+    host:"database-2.cpk6k6ga056w.ap-northeast-2.rds.amazonaws.com",
+    user:"admin",
+    password:"12345678",
+    port:"3306",
+    database:"management"
   });
 
   try {
     // SQL 쿼리 실행 - 데이터 저장
     const [result] = await connection.execute(
-      'INSERT INTO users (name, email, password) VALUES (?, ?, ?)',
-      [name, email, hashedPassword]
+      'SELECT * FROM customer'
     );
+    // 'INSERT INTO users (name, email, password) VALUES (?, ?, ?)',
     console.log(result)
 
     // 성공 메시지 응답
