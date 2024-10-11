@@ -6,7 +6,7 @@ import css from './signupForm.module.css';
 
 // 모달 컴포넌트
 export default function SignupModal({ isOpen, onClose }) {
-  const [email, setEmail] = useState('');
+  const [userid, setUserid] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -17,7 +17,7 @@ export default function SignupModal({ isOpen, onClose }) {
 
     try {
       const res = await axios.post('http://localhost:3000/api/signup', {
-        email,
+        userid,
         password,
         name,
       });
@@ -53,12 +53,12 @@ export default function SignupModal({ isOpen, onClose }) {
             />
           </div>
           <div>
-            <label htmlFor="email">이메일:</label>
+            <label htmlFor="userid">아이디:</label>
             <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              type="userid"
+              id="userid"
+              value={userid}
+              onChange={(e) => setUserid(e.target.value)}
               required
             />
           </div>

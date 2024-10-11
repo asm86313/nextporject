@@ -5,7 +5,7 @@ import { useState } from 'react';
 import SignupModal from '../SignupModal/SignupModal'
 
 export default function Login() {
-  const [email, setEmail] = useState('');
+  const [userid, setUserid] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [isSignupModalOpen, setSignupModalOpen] = useState(false);
@@ -16,7 +16,7 @@ export default function Login() {
     try {
       // axios로 서버에 로그인 요청
       const res = await axios.post('http://localhost:3000/api/login', {
-        email: email,
+        userid: userid,
         password: password,
       });
 
@@ -55,17 +55,17 @@ export default function Login() {
       {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="userid">아이디:</label>
           <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            type="userid"
+            id="userid"
+            value={userid}
+            onChange={(e) => setUserid(e.target.value)}
             required
           />
         </div>
         <div>
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">비밀번호:</label>
           <input
             type="password"
             id="password"
@@ -74,9 +74,9 @@ export default function Login() {
             required
           />
         </div>
-        <button type="submit">Login</button>
-        <button type="button" onClick={handleLogout}>Logout</button>
-        <button type="button" onClick={openSignupModal}>회원가입</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-2" type="submit">Login</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-2" type="button" onClick={handleLogout}>Logout</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" type="button" onClick={openSignupModal}>회원가입</button>
       </form>
       <SignupModal isOpen={isSignupModalOpen} onClose={closeSignupModal} />
     </div>
