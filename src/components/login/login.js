@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 import { useState } from 'react';
-import SignupModal from '../SignupModal/SignupModal'
+import SignupModal from '../SignupModal/signupModal'
 
 export default function Login() {
   const [userid, setUserid] = useState('');
