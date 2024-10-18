@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 import { useState } from 'react';
-import SignupModal from '../SignupModal/signupModal'
+import SignupModal from '../signupModal/signupModal'
 
 export default function Login() {
   const [userid, setUserid] = useState('');
@@ -74,9 +74,9 @@ export default function Login() {
             required
           />
         </div>
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-2" type="submit">Login</button>
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-2" type="button" onClick={handleLogout}>Logout</button>
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" type="button" onClick={openSignupModal}>회원가입</button>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-2" type="submit">Login</button>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-2" type="button" onClick={handleLogout}>Logout</button>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" type="button" onClick={openSignupModal}>회원가입</button>
       </form>
       <SignupModal isOpen={isSignupModalOpen} onClose={closeSignupModal} />
     </div>

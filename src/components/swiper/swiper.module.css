@@ -3,28 +3,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* 화면 밖의 슬라이드 숨기기 */
-    height: 100vh; /* 전체 화면 높이 */
-}
+    height: auto; /* 전체 화면 높이 */
+    width: 100%;
 
-.imageSlider {
-    width: 100%; /* 전체 너비 설정 */
+}
+.sliderWrap {
+    overflow: hidden;
+    height: 100%;
+    width: 90%;
 }
 
 .imageGrid {
-    display: flex; /* 슬라이드를 가로로 나열 */
-    transition: transform 0.5s ease; /* 슬라이드 전환 효과 */
+    width: 100%;
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* 슬라이드 전환 애니메이션 */
 }
 
 .imageItem {
-    flex: 0 0 auto; /* 너비를 자동으로 조정 */
-    box-sizing: border-box; /* 여백 포함하여 너비 계산 */
-    text-align: center;
-    padding: 1rem;
+    flex: 0 0 auto;
+    padding: 0.5rem;
 }
 
-.imageItem img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
+.buttonWrap{
+    flex: 0 0 auto;
+    margin-left: 20px;
 }

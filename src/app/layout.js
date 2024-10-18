@@ -1,6 +1,7 @@
 import "./globals.css";
 import ClientLayout from "@/components/layout";""
 import localFont from "next/font/local";
+import css from "./layout.module.css";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -22,11 +23,22 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html>
-      <body>
-        <ClientLayout>
-          {children}
-        </ClientLayout>
-      </body>
+        <body>
+            <header className={css.header}>
+                <nav>Navigation Bar</nav>
+            </header>
+            <aside className={css.aside}>
+              safsfd
+            </aside>
+            <main className={css.main}>
+                <ClientLayout>
+                    {children}
+                </ClientLayout>
+            </main>
+            <footer className={css.footer}>
+                Footer
+            </footer>
+        </body>
     </html>
-  );
+);
 }
